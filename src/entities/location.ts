@@ -19,7 +19,7 @@ export class Location extends BaseEntity {
     region?: string;
 
     @OneToMany(() => Activity, activity => activity.location)
-    activities: Activity[] = [];
+    activities!: Activity[];   // TODO: is this working, what if null??
 
     constructor(name: string, region?: string) {
         super();

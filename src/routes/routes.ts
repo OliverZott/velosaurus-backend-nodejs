@@ -5,15 +5,15 @@ import { getActivities, createActivity, updateActivity, deleteActivity } from '.
 const router = express.Router();
 
 // Location routes
-router.get('/locations', getLocations);
-router.post('/locations', createLocation);
-router.put('/locations/:id', updateLocation);
-router.delete('/locations/:id', deleteLocation);
+router.get('/location', getLocations);
+router.post('/location', createLocation);
+router.put('/location/:id', updateLocation);
+router.delete('/location/:id', deleteLocation);
 
 // Activity routes
-router.get('/activities', getActivities);
-router.post('/activities', createActivity);
-router.put('/activities/:id', updateActivity);
-router.delete('/activities/:id', deleteActivity);
+router.get('/activity', getActivities);
+router.post('/activity', createActivity);
+router.put('/activity/:id', updateActivity);
+router.delete('/activity/:id', deleteActivity);
 
 export default router;
