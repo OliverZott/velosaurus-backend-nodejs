@@ -17,6 +17,18 @@ export const getLocations = async (req: Request, res: Response, next: NextFuncti
     }
 };
 
+export const getLocationById = async (req: Request, res: Response): Promise<void> => {
+    const locationRepository = AppDataSource.getRepository(Location);
+    const location = await locationRepository.findOneBy({ id: Number(req.params.id) });
+
+    if (!location) {
+        res.status(404).json({ message: 'Location not found' });
+        return;
+    }
+
+    res.json(location);
+}
+
 // POST: api/locations
 export const createLocation = async (req: Request, res: Response): Promise<void> => {
     const locationRepository = AppDataSource.getRepository(Location);

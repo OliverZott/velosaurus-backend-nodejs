@@ -16,6 +16,18 @@ export const getActivities = async (req: Request, res: Response): Promise<void> 
     }
 };
 
+export const getActivitiyById = async (req: Request, res: Response): Promise<void> => {
+    const activityRepository = AppDataSource.getRepository(Activity);
+    const activity = await activityRepository.findOneBy({ id: Number(req.params.id) });
+
+    if (!activity) {
+        res.status(404).json({ message: 'Activity not found' });
+        return;
+    }
+
+    res.json(activity);
+}
+
 // POST: api/activities
 export const createActivity = async (req: Request, res: Response): Promise<void> => {
     const activityRepository = AppDataSource.getRepository(Activity);
