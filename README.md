@@ -19,10 +19,10 @@ SMTP_PORT=666
 ## Run application
 
 - `npm install`
-- `npm run seed:activities` to seed database
-- `npm run seed:locations` to seed database
-- `npm run dev`
-- <http://localhost:3000/>
+- `npm run seed:data` to seed database
+- `npm run start`
+- <http://localhost:3000/api/activity>
+- <http://localhost:3000/api/location>
 
 ## Debug/Test application
 
