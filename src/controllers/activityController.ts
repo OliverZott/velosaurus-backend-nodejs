@@ -3,6 +3,7 @@ import { getRepository } from 'typeorm';
 import { Activity } from '../entities/activity';
 import { validate } from 'class-validator';
 import { AppDataSource } from '../db/datasource';
+import { ActivityDTO } from '../dtos/actifityDto';
 
 // GET: api/activities
 export const getActivities = async (req: Request, res: Response): Promise<void> => {
@@ -16,16 +17,30 @@ export const getActivities = async (req: Request, res: Response): Promise<void> 
     }
 };
 
+// GET: api/activities/:id
 export const getActivitiyById = async (req: Request, res: Response): Promise<void> => {
     const activityRepository = AppDataSource.getRepository(Activity);
-    const activity = await activityRepository.findOneBy({ id: Number(req.params.id) });
+    const activity = await activityRepository.findOne({
+        where: { id: Number(req.params.id) },
+        relations: ['location']
+    });
 
     if (!activity) {
         res.status(404).json({ message: 'Activity not found' });
         return;
     }
 
-    res.json(activity);
+    const activityDTO = new ActivityDTO(
+        activity.name,
+        activity.date,
+        activity.length,
+        activity.altitudeGain,
+        activity.activityType,
+        activity.description,
+        activity.location as Location | undefined,
+    );
+
+    res.json(activityDTO);
 }
 
 // POST: api/activities
