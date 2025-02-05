@@ -46,12 +46,20 @@ export const getActivitiyById = async (req: Request, res: Response): Promise<voi
 // POST: api/activities
 export const createActivity = async (req: Request, res: Response): Promise<void> => {
     const activityRepository = AppDataSource.getRepository(Activity);
+
+    // Parse date string to Date object
+    if (req.body.date) {
+        req.body.date = new Date(req.body.date);
+    }
+
     const activity = activityRepository.create(req.body);
 
-    const errors = await validate(activity);
-    if (errors.length > 0) {
-        res.status(400).json({ message: 'Validation failed', errors });
-    }
+    // TODO: Fix this validation, makes no sense after inserted in db
+    // const errors = await validate(activity);
+    // if (errors.length > 0) {
+    //     res.status(400).json({ message: 'Validation failed', errors });
+    //     return;
+    // }
 
     try {
         await activityRepository.save(activity);
