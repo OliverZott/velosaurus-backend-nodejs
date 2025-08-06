@@ -1,0 +1,7 @@
+services:
+  backend:
+    build: .
+    image: velosaurus-backend-nodejs-alpine
+    container_name: velosaurus-backend-node
+    ports:
+      - "3000:3000"

@@ -61,6 +61,11 @@ Run linter:
 - Start / Stop container `docker start velosaurus-backend-node` / `docker stop velosaurus-backend-node`
 - Remove container `docker container rm velosaurus-backend-node`
 
+or use docker compose:
+
+- `docker compose up --build`
+- `docker compose down`
+
 ### Docker remarks
 
 - build with default node:24 base image -> Imagesize: 1.85 GB
