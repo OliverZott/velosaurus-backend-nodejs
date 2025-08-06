@@ -59,11 +59,13 @@ Run linter:
 - Build the Docker image `docker build -t velosaurus-backend-nodejs .`
 - Run the Docker container first time `docker run -p 3000:3000 --name velosaurus-backend-node velosaurus-backend-nodejs`
 - Start / Stop container `docker start velosaurus-backend-node` / `docker stop velosaurus-backend-node`
+- Remove container `docker container rm velosaurus-backend-node`
 
 ### Docker remarks
 
 - build with default node:24 base image -> Imagesize: 1.85 GB
 - build with node:24-slim base image -> Imagesize: 515 MB
+- build with node:24-alpine base image -> Imagesize: 418 MB
 
 ## Deployment
 
