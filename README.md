@@ -28,7 +28,7 @@ SMTP_PORT=666
 
 ### debug
 
-To debug in vs code run "Debug Program" in the debug tab or use the command `npm run debug`.
+To debug in vs code run `Debug Program` in the debug tab or use the command `npm run debug`.
 
 ### test api
 
