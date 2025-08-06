@@ -39,6 +39,21 @@ REST API endpoints:
 - GET `http://localhost:3000/api/activity`
 - GET `http://localhost:3000/api/location`
 
+## Linting
+
+[ts-eslint docs](https://typescript-eslint.io/users/configs/)
+
+- Manual setup:
+  - `npm install --save-dev eslint @eslint/js typescript typescript-eslint`
+  - create `eslint.config.mjs`
+- Interactive setup `npm init @eslint/config@latest`
+- If necessary install jiti... `npm install --save-dev jiti`
+
+Run linter:
+
+- `npx eslint .`
+- or `npm run lint`
+
 ## Deployment
 
 Running live on [render](https://dashboard.render.com/)
