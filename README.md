@@ -38,8 +38,14 @@ To test API you can use collection *rest-api.postman_collection.json* with **Pos
 
 REST API endpoints:
 
-- GET `http://localhost:3000/rest/activity`
-- GET `http://localhost:3000/rest/location`
+- GET `http://localhost:3000/api/activity`
+- GET `http://localhost:3000/api/location`
+
+## Deployment
+
+Running live on [render](https://dashboard.render.com/)
+
+- `https://velosaurus-backend-nodejs.onrender.com/api/activity/1`
 
 # Setup
 
