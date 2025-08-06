@@ -1,0 +1,14 @@
+node_modules
+docs
+npm-debug.log
+Dockerfile
+.dockerignore
+.git
+.gitignore
+.env
+*.md
+*.log
+coverage
+dist
+__pycache__/
+*.pyc

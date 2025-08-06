@@ -54,6 +54,12 @@ Run linter:
 - `npx eslint .`
 - or `npm run lint`
 
+## Docker
+
+- Build the Docker image `docker build -t velosaurus-backend-nodejs .`
+- Run the Docker container first time `docker run -p 3000:3000 --name velosaurus-backend-nodejs velosaurus-backend-nodejs`
+- Start / Stop container `docker start velosaurus-backend-nodejs` / `docker stop velosaurus-backend-nodejs`
+
 ## Deployment
 
 Running live on [render](https://dashboard.render.com/)
