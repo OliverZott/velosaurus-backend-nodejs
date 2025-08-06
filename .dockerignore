@@ -1,5 +1,7 @@
-node_modules
+.vscode
+dist
 docs
+node_modules
 npm-debug.log
 Dockerfile
 .dockerignore
@@ -9,6 +11,5 @@ Dockerfile
 *.md
 *.log
 coverage
-dist
 __pycache__/
 *.pyc

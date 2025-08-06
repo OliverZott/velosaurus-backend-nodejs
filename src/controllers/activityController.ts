@@ -3,13 +3,45 @@ import { Activity } from '../entities/activity';
 import { validate } from 'class-validator';
 import { AppDataSource } from '../db/datasource';
 import { mapToActivityDto } from '../dtos/actifityDto';
+import { PagedResponse } from '../dtos/pagedResponse';
+import { PaginationMetadata } from '../dtos/paginationMetadata';
 
 // GET: api/activities
 export const getActivities = async (req: Request, res: Response): Promise<void> => {
     try {
         const activityRepository = AppDataSource.getRepository(Activity);
-        const activities = await activityRepository.find();
-        res.json(activities);
+        const pageNumber = req.query.pageNumber ? Number(req.query.pageNumber) : null;
+        const pageSize = req.query.pageSize ? Number(req.query.pageSize) : null;
+
+        let activities = [];
+
+        if (pageNumber && pageSize) {
+
+            activities = await activityRepository.find({
+                skip: Number((pageNumber - 1) * pageSize),
+                take: pageSize,
+            });
+            const pageCount = Math.ceil(activities.length / pageSize);
+
+            const paginationMetadata: PaginationMetadata = {
+                TotalItems: activities.length,
+                PageSize: pageSize,
+                CurrentPage: pageNumber,
+                TotalPages: pageCount,
+                HasNextPage: pageNumber < pageCount,
+                HasPreviousPage: pageNumber > 1,
+            };
+
+            const pagedResponse: PagedResponse<Activity> = {
+                items: activities,
+                metadata: paginationMetadata
+            }
+
+            res.json(pagedResponse);
+        } else {
+            activities = await activityRepository.find();
+            res.json(activities);
+        }
     } catch (err) {
         console.error('Error fetching activities:', err);
         res.status(500).json({ message: 'Internal server error' });
