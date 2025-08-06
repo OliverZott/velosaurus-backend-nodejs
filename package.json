@@ -7,19 +7,24 @@
     "start": "ts-node-dev --respawn src/index.ts",
     "start:prod": "node dist/index.js",
     "seed:data": "ts-node src/db/seedData.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/js": "^9.32.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^24.2.0",
     "@types/nodemailer": "^6.4.17",
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.0"
   },
   "dependencies": {
     "class-validator": "^0.14.2",
