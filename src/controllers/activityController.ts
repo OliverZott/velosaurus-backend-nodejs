@@ -1,9 +1,8 @@
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
 import { Activity } from '../entities/activity';
 import { validate } from 'class-validator';
 import { AppDataSource } from '../db/datasource';
-import { ActivityDTO } from '../dtos/actifityDto';
+import { mapToActivityDto } from '../dtos/actifityDto';
 
 // GET: api/activities
 export const getActivities = async (req: Request, res: Response): Promise<void> => {
@@ -30,15 +29,7 @@ export const getActivitiyById = async (req: Request, res: Response): Promise<voi
         return;
     }
 
-    const activityDTO = new ActivityDTO(
-        activity.name,
-        activity.date,
-        activity.length,
-        activity.altitudeGain,
-        activity.activityType,
-        activity.description,
-        activity.location as Location | undefined,
-    );
+    const activityDTO = mapToActivityDto(activity);
 
     res.json(activityDTO);
 }
@@ -54,12 +45,12 @@ export const createActivity = async (req: Request, res: Response): Promise<void>
 
     const activity = activityRepository.create(req.body);
 
-    // TODO: Fix this validation, makes no sense after inserted in db
-    // const errors = await validate(activity);
-    // if (errors.length > 0) {
-    //     res.status(400).json({ message: 'Validation failed', errors });
-    //     return;
-    // }
+    //Validate properties
+    const errors = await validate(activity);
+    if (errors.length > 0) {
+        res.status(400).json({ message: 'Validation failed', errors });
+        return;
+    }
 
     try {
         await activityRepository.save(activity);

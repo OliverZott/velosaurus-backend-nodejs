@@ -1,5 +1,5 @@
 
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { IsNotEmpty, IsString, MaxLength, IsOptional, IsNumber, IsDate } from 'class-validator';
 import { Location } from './location';
 import { BaseEntity } from './baseEntity';

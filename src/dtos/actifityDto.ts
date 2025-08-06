@@ -1,5 +1,6 @@
 import { IsInt, IsOptional, IsString } from "class-validator";
 import { ActivityType } from "../entities/activityType";
+import { Activity } from "../entities/activity";
 
 export class ActivityDTO {
 
@@ -19,5 +20,17 @@ export class ActivityDTO {
         this.activityType = activityType;
         this.description = description;
         this.location = location;
+    }
+}
+
+export function mapToActivityDto(activity: Activity): ActivityDTO {
+    return {
+        name: activity.name,
+        date: activity.date,
+        length: activity.length,
+        altitudeGain: activity.altitudeGain,
+        activityType: activity.activityType,
+        description: activity.description,
+        location: activity.location as Location | undefined
     }
 }
