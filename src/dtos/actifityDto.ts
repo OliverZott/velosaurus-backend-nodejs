@@ -1,4 +1,3 @@
-import { IsInt, IsOptional, IsString } from "class-validator";
 import { ActivityType } from "../entities/activityType";
 import { Activity } from "../entities/activity";
 

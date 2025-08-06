@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import express from 'express';
 import { getLocations, createLocation, updateLocation, deleteLocation, getLocationById } from '../controllers/locationController';
 import { getActivities, createActivity, updateActivity, deleteActivity, getActivitiyById } from '../controllers/activityController';
 

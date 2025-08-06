@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, Column, OneToMany } from 'typeorm';
 import { IsNotEmpty, IsString, MaxLength, IsOptional } from 'class-validator';
 import { Activity } from './activity';
 import { BaseEntity } from './baseEntity';

@@ -1,12 +1,11 @@
-import { Request, Response, NextFunction } from 'express';
-import { getRepository } from 'typeorm';
+import { Request, Response } from 'express';
 import { Location } from '../entities/location';
 import { validate } from 'class-validator';
 import { AppDataSource } from '../db/datasource';
 
 
 // GET: api/locations
-export const getLocations = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const getLocations = async (req: Request, res: Response): Promise<void> => {
     try {
         const locationRepository = AppDataSource.getRepository(Location);
         const locations = await locationRepository.find();

@@ -32,7 +32,7 @@ export const sendEmail = async (data: EmailData) => {
         from: user,
         to: 'zott_oliver@web.de',
         subject: 'Velosaurus Backend - API request',
-        text: `Sehr geehrter Markus, bitte beachten Sie: \nEs gibt im DMS neue Dokumente, die sie irgendwann/irgednwie/irgendwo herunterladen können.\n\nMitfreundlichen Grüßem\nIhr DMS :)`
+        text: `Message from: ${data.endpoint}\n\n${data.activity}\n${data.location}\n`
     };
 
     try {
