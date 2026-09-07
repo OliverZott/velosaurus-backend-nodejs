@@ -3,7 +3,7 @@ import { Activity } from '../entities/activity';
 import { Location } from '../entities/location';
 
 export const AppDataSource = new DataSource({
-    type: 'sqlite',
+    type: 'better-sqlite3',
     database: './data/velosaurus.sqlite',
     synchronize: true,
     logging: true,

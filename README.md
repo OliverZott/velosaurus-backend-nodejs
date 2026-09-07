@@ -41,19 +41,6 @@ REST API endpoints:
 
 ## Linting
 
-[ts-eslint docs](https://typescript-eslint.io/users/configs/)
-
-- Manual setup:
-  - `npm install --save-dev eslint @eslint/js typescript typescript-eslint`
-  - create `eslint.config.mjs`
-- Interactive setup `npm init @eslint/config@latest`
-- If necessary install jiti... `npm install --save-dev jiti`
-
-Run linter:
-
-- `npx eslint .`
-- or `npm run lint`
-
 ## Docker
 
 - Build the Docker image `docker build -t velosaurus-backend-nodejs .`
@@ -85,7 +72,9 @@ Running live on [render](https://dashboard.render.com/)
 On production server:
 
 - `npm install -g pm2`
-- `npm run build:prod` - Install deps, build, and cleanup for production
+- `npm ci` - Install deps (clean install)
+- `npm run build` - start build process
+- `npm run start:prod` - Start in production mode
 - `pm2 start ecosystem.config.js --env production` - Start with PM2 (production mode)
 - `pm2 save` - Save PM2 configuration
 - `pm2 startup` - Setup auto-start on boot

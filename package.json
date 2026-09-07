@@ -4,36 +4,33 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node-dev --respawn src/index.ts",
-    "start:prod": "node dist/index.js",
+    "start": "tsx watch src/index.ts",
+    "start:prod": "node --loader tsx dist/index.js",
     "seed:data": "ts-node src/db/seedData.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext .ts"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@eslint/js": "^9.32.0",
+    "@biomejs/biome": "^2.5.12",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
-    "@types/node": "^24.10.2",
-    "@types/nodemailer": "^7.0.4",
-    "eslint": "^9.39.1",
-    "globals": "^16.5.0",
+    "@types/node": "^26.5.0",
+    "@types/nodemailer": "^8.0.1",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.49.0"
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
   },
   "dependencies": {
-    "class-validator": "^0.14.3",
-    "cors": "^2.8.5",
+    "class-validator": "^0.15.1",
+    "cors": "^2.8.6",
     "express": "^5.2.1",
-    "jiti": "^2.6.1",
-    "nodemailer": "^7.0.11",
+    "jiti": "^2.7.0",
+    "nodemailer": "^10.0.1",
     "reflect-metadata": "^0.2.2",
-    "sqlite3": "^5.1.7",
-    "typeorm": "^0.3.28"
+    "sqlite3": "^6.0.1",
+    "typeorm": "^1.1.1"
   }
 }
